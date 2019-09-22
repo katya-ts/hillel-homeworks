@@ -11,10 +11,10 @@ public class Main {
         car1.getFuel();
         car1.move();
         System.out.println("========");
-        car2.turnOn();
         car2.getFuel();
         car2.move();
         System.out.println("========");
+        car3.getBrand();
         car3.move();
     }
 }

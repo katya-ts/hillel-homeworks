@@ -23,16 +23,6 @@ public class Car {
         this.tankIsFull = tankIsFull;
     }
 
-    public void turnOn() {
-
-        if (this.tankIsFull == true) {
-            this.isOn = true;
-            System.out.println("Wrrrrrroooom! The engine is on.");
-        } else {
-            System.out.println("Sorry, no gas in this " + this.brand + ", please refill the tank and try again.");
-        }
-    }
-
     public void getFuel() {
         if (this.tankIsFull == false) {
             this.tankIsFull = true;
@@ -75,18 +65,16 @@ public class Car {
         }
     }
 
-    public void move(){
-        if (this.tankIsFull == true && this.rightFrontTire.getState() == false && this.leftFrontTire.getState() == false &&
-                this.rightBackTire.getState() == false && this.leftBackTire.getState() == false) {
-            System.out.println("The " + this.brand + " is ready to be cruising through space and time.");
-            this.turnOn();
-            System.out.println("Ok Go - 1000mph is playing as we fly by wheat fields and water towers.");
+    public void move() {
+        if (this.tankIsFull && !this.rightFrontTire.getState() && !this.leftFrontTire.getState() &&
+                !this.rightBackTire.getState() && !this.leftBackTire.getState()) {
+            this.engine.setState(isOn);
+            System.out.println("The " + this.brand + " is cruising through space and time.");
         } else {
             System.out.println("Something is wrong with the " + this.brand + ". Please, check the fuel level and tires.");
             this.checkTires();
             this.getFuel();
-            this.turnOn();
-            System.out.println("Everything seems to be okay now. Let's go!");
+            System.out.println("Everything seems to be okay now. Let's fly by wheat fields and water towers.");
         }
     }
 
